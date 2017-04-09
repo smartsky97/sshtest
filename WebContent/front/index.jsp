@@ -12,19 +12,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="description" content="新闻天天看">
-<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+<link href="//cdn.bootcss.com/tether/1.3.6/css/tether.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="front/index.css">
 </head>
 
 <body>
-	<div >
-		<div class="leftArea"></div>
-		<div class="centerArea">
-			<div class="news_content"></div>
-			<div class="news_bottom"></div>
+	<div class="container">
+		<div class="leftArea left">
+			<ul>
+				<li>娱乐</li>
+				<li>军事</li>
+			</ul>
+		</div>
+		<div class="centerArea left">
+			<div class="news_content">aaaa</div>
+			<div class="news_bottom">bbb</div>
 		</div>
 	</div>
 </body>
+<script src="//cdn.bootcss.com/tether/1.3.6/js/tether.min.js"></script>
+<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 </html>
-

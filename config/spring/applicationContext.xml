@@ -1,13 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context.xsd
            http://www.springframework.org/schema/aop 
            http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
            http://www.springframework.org/schema/tx 
            http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
   	<import resource="applicationContext-db.xml"/>
   	<import resource="applicationContext-person.xml"/>
-</beans>
+  	<!-- 自动扫描包 -->
+   	<context:component-scan base-package="com.zjt" />
+  	<!-- <bean id="sessionFactory"
+  		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+  		<property name="configLocation"
+  			value="classpath:hibernate.cfg.xml">
+  		</property>
+  	</bean> -->
+  	<bean id="UsersDAO" class="com.zjt.entity.UsersDAO">
+  		<property name="sessionFactory">
+  			<ref bean="sessionFactory" />
+  		</property>
+  	</bean>
+  	<bean id="NewstypeDAO" class="com.zjt.entity.NewstypeDAO">
+  		<property name="sessionFactory">
+  			<ref bean="sessionFactory" />
+  		</property>
+  	</bean>
+  	<bean id="NewsDAO" class="com.zjt.entity.NewsDAO">
+  		<property name="sessionFactory">
+  			<ref bean="sessionFactory" />
+  		</property>
+  	</bean>
+  	<bean id="CommentsDAO" class="com.zjt.entity.CommentsDAO">
+  		<property name="sessionFactory">
+  			<ref bean="sessionFactory" />
+  		</property>
+  	</bean></beans>

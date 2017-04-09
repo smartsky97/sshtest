@@ -1,5 +1,3 @@
+/hibernate.cfg.xml
 /com/
-/jdbc.properties
 /spring/
-/struts/
-/struts.xml

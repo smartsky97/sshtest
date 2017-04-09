@@ -38,6 +38,7 @@
 				<value>classpath:com/zjt/entity</value>
 			</list>
 		</property>
+		
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>

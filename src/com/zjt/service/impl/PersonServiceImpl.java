@@ -2,10 +2,13 @@ package com.zjt.service.impl;
 
 import java.io.Serializable;
 
+import org.springframework.stereotype.Service;
+
 import com.zjt.dao.PersonDao;
 import com.zjt.entity.Person;
 import com.zjt.service.PersonService;
 
+@Service("personService")
 public class PersonServiceImpl implements PersonService{
 	private PersonDao personDao;
 
