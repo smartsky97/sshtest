@@ -2,5 +2,21 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 
 <struts>
-	<include file="struts/struts-person.xml"></include>
+	<constant name="struts.devMode" value="false" />
+	<constant name="struts.convention.classes.reload" value="false" />
+	
+	<constant name="struts.action.extension" value="action" />
+	<constant name="struts.i18n.encoding" value="utf-8" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="default" namespace="/" extends="struts-default">
+    	<!-- <action name="back-*" class="backAction" method="{1}">
+    		<result name="{1}">/back/{1}.jsp</result>
+    	</action> -->
+    
+    	<action name="*_*" class="{1}Action" method="{2}">
+    		
+    	</action>
+    	
+    </package>
 </struts>

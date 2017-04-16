@@ -13,14 +13,21 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
+
 import org.apache.commons.lang3.math.NumberUtils;
 import org.apache.log4j.Logger;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.dispatcher.multipart.MultiPartRequestWrapper;
+
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -276,6 +283,35 @@ public class BaseAction extends ActionSupport {
 			}
 		}
 	}
+	
+	// 以json格式输出
+		public void writeJson(Object obj) {
+			PrintWriter pw = null;
+			try {
+				HttpServletResponse response = ServletActionContext.getResponse();
+				response.setContentType("application/json;charset=utf-8");
+				pw = response.getWriter();
+				setResponseNoCache(response);
+				Object jsonObject = null;
+				JsonConfig jsonConfig = new JsonConfig();
+//				jsonConfig.registerJsonValueProcessor(java.util.Date.class,
+//						new DateJsonValueProcessor("yyyy-MM-dd HH:mm:ss"));
+				if (obj instanceof List) {
+					jsonObject = JSONArray.fromObject(obj, jsonConfig);
+				} else {
+					jsonObject = JSONObject.fromObject(obj, jsonConfig);
+				}
+				pw.print(jsonObject.toString());
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally{
+				if(pw != null){
+					pw.flush();
+					pw.close();
+				}
+			}
+		}
  
 	/**
 	 * 用户下载文件 

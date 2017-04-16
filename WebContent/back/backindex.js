@@ -3,7 +3,7 @@ Ext.onReady(function () {
         layout: 'border',
         items: [{
             region: 'north',
-            html: '<h1 class="x-panel-header">Logo</h1>',
+            html: '<h1 class="x-panel-header" style="background:grey;">Logo</h1>',
             border: false,
             height: 50,
             margins: '0 0 0 0'
@@ -27,8 +27,9 @@ Ext.onReady(function () {
                             root: {
                                 expanded: true,
                                 children: [
-                                    { id: "01", text: "用户管理", leaf: true, href: '#' },
-                                    { id: "02", text: "密码修改", leaf: true, href: '#' }
+                                    { id: "01", text: "用户管理", leaf: true, href: 'back/user/user.jsp' },
+                                    { id: "02", text: "新闻类型", leaf: true, href: 'back/type/type.jsp' },
+                                    { id: "03", text: "新闻", leaf: true, href: 'back/news/news.jsp' }
                                 ]
                             }
                         }
@@ -36,26 +37,14 @@ Ext.onReady(function () {
                 },
             ]
             // could use a TreePanel or AccordionLayout for navigational items
-        }, {
-            region: 'south',
-            collapsible: false,
-            html: '状态栏',
-            split: false,
-            height: 22
-        }, {
-            region: 'east',
-            title: '在线用户',
-            collapsible: true,
-            split: true,
-            width: 150
-        }, {
+        },{
             region: 'center',
             xtype: 'tabpanel', 
             id: 'MainTabPanel',
             activeTab: 0,  
             items: {
                 title: '首页',
-                html: '<h1>欢迎使用</h1><input type="button" value="添加新标签" onclick="CreateIframeTab(\'MainTabPanel\',\'01\', \'系统管理\', \'http://www.baidu.com\');" />'
+                html: '<h3>欢迎使用</h3><input type="button" value="添加新标签" onclick="CreateIframeTab(\'MainTabPanel\',\'01\', \'系统管理\', \'http://www.baidu.com\');" />'
             }
         }]
     });
